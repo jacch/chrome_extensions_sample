@@ -14,3 +14,9 @@ chrome.runtime.onInstalled.addListener(function() {
       "contexts":["selection"]
   }
   chrome.contextMenus.create(contextMenusItem);
+
+  chrome.contextMenus.onClicked.addListener(function(clickdata){
+    if(clickdata.menuItemId=="demo" && clickdata.selectionText){
+      alert(clickdata.selectionText);
+    }
+  });
